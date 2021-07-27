@@ -8,9 +8,9 @@ class DepartmentsController < ApplicationController
   end
 
   def show
-    the_id = params.fetch("path_id")
+    @the_id = params.fetch("path_id")
 
-    matching_departments = Department.where({ :id => the_id })
+    matching_departments = Department.where({ :id => @the_id }).at(0)
 
     @the_department = matching_departments
 
